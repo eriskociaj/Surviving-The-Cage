@@ -26,7 +26,6 @@ public class MainGame {
         player.addToInventory(new MiniChair("Wooden Mini Chair"));
         player.addToInventory(new CoffeeCup("Cup of Coffee"));
 
-        boolean keyFound = false;
         // Game loop
         boolean gameRunning = true;
 
@@ -40,33 +39,29 @@ public class MainGame {
 
             switch (choice) {
                 case 1:
-                    System.out.println("You must see your inventory first.");
-                    System.out.println("Here are the items that were left to entertain you:");
+                    System.out.println("Here are the items in your inventory:");
                     player.showInventory();
-                    System.out.println("Which item do you choose? Please enter the number.");
+                    System.out.println("Which item would you like to use? Please enter the number.");
                     int itemChoice = safeNextInt(scanner) - 1;
                     if (itemChoice >= 0 && itemChoice < player.inventorySize()) {
-                        System.out.println("What do you want to do with this item?");
+                        player.useItem(itemChoice);
                     } else {
                         System.out.println("Invalid item choice.");
                     }
                     break;
                 case 2:
+                    System.out.println("Inspecting your inventory...");
                     player.showInventory();
                     break;
                 case 3:
-                    System.out.println("Quitting the game. Goodbye!");
+                    System.out.println("Quitting the game already... Well then you are dead, goodbye!");
                     gameRunning = false;
                     break;
                 default:
                     System.out.println("Invalid choice. Please select a valid option.");
                     break;
             }
-            // Check if the key has been found to declare victory
-            if (keyFound) {
-                System.out.println("Congratulations! You've found the key and used it to escape the cage. YOU ARE FREEEEE!");
-                gameRunning = false; // End the game loop
-            }
+            
         }
         scanner.close();
     }
