@@ -18,7 +18,7 @@ public class MainGame {
         System.out.println("Welcome, " + playerName
                 + ". Your journey begins now. \nSo you see yourself inside this cage. \nYou must get out of this cage, immidiately.");
 
-        Player player = new Player();
+        Player player = new Player(playerName);
         player.addToInventory(new Book("A Tale of Two Cities"));
         player.addToInventory(new WaterBottle("Plastic Water Bottle"));
         player.addToInventory(new Pen("Blue Pen"));
