@@ -3,6 +3,8 @@ import java.util.Scanner;
 
 // CoffeeCup class extending GameItem to inherit its properties and implementing Usable for polymorphism
 public class CoffeeCup extends GameItem {
+    // Static Scanner instance for the entire class
+    private static final Scanner scanner = new Scanner(System.in);
 
     // Constructor
     public CoffeeCup(String name) {
@@ -32,13 +34,13 @@ public class CoffeeCup extends GameItem {
 
     // Static method to safely read an integer from the user input
     private static int safeReadInt() {
-        Scanner scanner = new Scanner(System.in);
+
         while (true) {
             try {
                 return scanner.nextInt();
             } catch (InputMismatchException e) {
                 System.out.println("That's not a valid number. Please enter a number.");
-                scanner.next(); 
+                scanner.next();
             }
         }
     }
