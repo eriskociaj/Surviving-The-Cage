@@ -9,6 +9,7 @@ public class MiniChair extends GameItem {
     @Override
     public void use() {
         System.out.println("It's sturdy enough to support your weight, but look there is a shelf!.");
+        GameState.chairUsed = true; // Set the flag to true when the chair is used
     }
 
     public void interact(Scanner scanner) {
@@ -43,16 +44,28 @@ private void showShelfItems(Scanner scanner, Inventory inventory) {
 
     switch (choice) {
         case 0: // Book
+        if (GameState.chairUsed) {
             CurrentItem currentItemBook = new CurrentItem("Book");
             currentItemBook.interact(scanner); // Delegate interaction to CurrentItem for Book
+        } else {
+            System.out.println("It seems like you need to use something to reach this. Maybe the Wooden Chair could help?");
+        }
             break;
         case 1: // Pen
+        if (GameState.chairUsed) {
             CurrentItem currentItemPen = new CurrentItem("Pen");
             currentItemPen.interact(scanner); // Delegate interaction to CurrentItem for Pen
+        } else {
+            System.out.println("It seems like you need to use something to reach this. Maybe the Wooden Chair could help?");
+        }
             break;
         case 2: // Vase
+        if (GameState.chairUsed) {
             CurrentItem currentItemVase = new CurrentItem("Vase");
             currentItemVase.interact(scanner); // Delegate interaction to CurrentItem for Vase
+        } else {
+            System.out.println("It seems like you need to use something to reach this. Maybe the Wooden Chair could help?");
+        }
             break;
         default:
             System.out.println("Invalid choice. Please select a valid number.");
