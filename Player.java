@@ -56,17 +56,7 @@ public void addToInventory(GameItem item) {
         item.use(); // Polymorphic call to use the item
     }
 
-    // Method to safely remove an item from the inventory (demonstrates stability)
-    public boolean removeFromInventory(int itemIndex) {
-        if (itemIndex < 0 || itemIndex >= inventory.size()) {
-            System.out.println("Invalid item index. No item removed.");
-            return false;
-        }
-        GameItem removedItem = inventory.remove(itemIndex);
-        System.out.println(removedItem.getName() + " has been removed from your inventory.");
-        return true;
-    }
-
+    
     // Getters and setters
     public String getName() {
         return name;

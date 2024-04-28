@@ -6,16 +6,16 @@ public class MainGame {
         Scanner scanner = new Scanner(System.in);
 
         // Introduction by the captor
-        System.out.println("HAHA HA YOU WILL NEVER ESCAPE THIS CAGE. I WILL HAVE YOU LOCKED UP FOREVER!");
+        System.out.println("\n\nHAHA HA YOU WILL NEVER ESCAPE THIS CAGE. I WILL HAVE YOU LOCKED UP FOREVER!");
 
         // Roll in the introductions
         System.out.println(
-                "A mysterious voice continues, 'But if you're clever enough, maybe there's a way out...'\nWho is this man? You ask yourself. \nWhy are you here? You ask yourself. \nSTOP THE QUESTIONS! YOU NEED TO GET OUT");
+                "\nA mysterious voice continues, 'But if you're clever enough, maybe there's a way out...'\nWho is this man? You ask yourself. \nWhy are you here? You ask yourself. \nSTOP THE QUESTIONS! YOU NEED TO GET OUT");
         System.out.print("----------------------------------------------------- ");
         System.out.print("\nWhat is your name, prisoner? ");
 
         String playerName = scanner.nextLine();
-        System.out.println("Welcome, " + playerName
+        System.out.println("\nWelcome, " + playerName
                 + ". Your journey begins now. \nSo you see yourself inside this cage. \nYou must get out of this cage, immidiately.");
 
         Player player = new Player(playerName);
@@ -39,9 +39,9 @@ public class MainGame {
 
             switch (choice) {
                 case 1:
-                    System.out.println("Here are the items in your inventory:");
+                    System.out.println("\nHere are the items in your inventory:");
                     player.showInventory();
-                    System.out.println("Which item would you like to use? Please enter the number.");
+                    System.out.println("\nWhich item would you like to use? Please enter the number.");
                     int itemChoice = safeNextInt(scanner) - 1;
                     if (itemChoice >= 0 && itemChoice < player.inventorySize()) {
                         player.useItem(itemChoice);
@@ -50,15 +50,15 @@ public class MainGame {
                     }
                     break;
                 case 2:
-                    System.out.println("Inspecting your inventory...");
+                    System.out.println("\nInspecting your inventory...");
                     player.showInventory();
                     break;
                 case 3:
-                    System.out.println("Quitting the game already... Well then you are dead, goodbye!");
+                    System.out.println("\nQuitting the game already... Well then you are dead, goodbye!");
                     gameRunning = false;
                     break;
                 default:
-                    System.out.println("Invalid choice. Please select a valid option.");
+                    System.out.println("\nInvalid choice. Please select a valid option.");
                     break;
             }
             
@@ -73,7 +73,7 @@ public class MainGame {
             try {
                 return scanner.nextInt();
             } catch (InputMismatchException e) {
-                System.out.println("That's not a valid number. Please enter a number.");
+                System.out.println("\nThat's not a valid number. Please enter a number.");
                 scanner.next(); // Clear the invalid input
             }
         }

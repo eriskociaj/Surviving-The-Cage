@@ -11,8 +11,8 @@ public class WaterBottle extends GameItem {
     @Override
     public void use() {
         Scanner scanner = new Scanner(System.in); // Create a new Scanner object for local use
-        System.out.println("You have " + getName() + ".");
-        System.out.println("1. Drink it\n2. Throw it away");
+        System.out.println("\nYou have " + getName() + ".");
+        System.out.println("1. Drink it \n2. Throw it away");
         System.out.print("What will you do? ");
         int choice = safeReadInt(scanner); // Use a method to safely read the user's choice
 
@@ -32,14 +32,14 @@ public class WaterBottle extends GameItem {
 
     // Method to handle the drinking action
     private void drink(Scanner scanner) {
-        System.out.println("You decide to drink the water from " + getName() + ".");
-        System.out.println("Oh no! The water was poisoned. You die.");
+        System.out.println("\nYou decide to drink the water from " + getName() + ".");
+        System.out.println("Oh no! The water was poisoned!! \nYou are dead :(..");
         System.exit(0); // Ends the game
     }
 
     // Method to handle the action of throwing the water bottle away
     private void throwAway() {
-        System.out.println("You throw the " + getName() + " away. It's gone forever now.");
+        System.out.println("\nYou throw the " + getName() + " away. Eh atleast you got some frustation out.");
     }
 
     // Static method to safely read an integer from the user input
@@ -48,7 +48,7 @@ public class WaterBottle extends GameItem {
             try {
                 return scanner.nextInt();
             } catch (InputMismatchException e) {
-                System.out.println("That's not a valid number. Please enter a number.");
+                System.out.println("\nThat's not a valid number. Please enter a number.");
                 scanner.next(); // Clear the invalid input before trying again
             }
         }
