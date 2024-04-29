@@ -1,32 +1,43 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class MainGame {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+public class Cage {
+    private Scanner scanner;
+    private Player player;
 
+    public Cage() {
+        scanner = new Scanner(System.in);
+        startGame();
+    }
+
+    public void startGame() {
         // Introduction by the captor
         System.out.println("\n\nHAHA HA YOU WILL NEVER ESCAPE THIS CAGE. I WILL HAVE YOU LOCKED UP FOREVER!");
 
         // Roll in the introductions
-        System.out.println(
-                "\nA mysterious voice continues, 'But if you're clever enough, maybe there's a way out...'\nWho is this man? You ask yourself. \nWhy are you here? You ask yourself. \nSTOP THE QUESTIONS! YOU NEED TO GET OUT");
+        System.out.println("\nA mysterious voice continues, 'But if you're clever enough, maybe there's a way out...'\nWho is this man? You ask yourself. \nWhy are you here? You ask yourself. \nSTOP THE QUESTIONS! YOU NEED TO GET OUT");
         System.out.print("----------------------------------------------------- ");
         System.out.print("\nWhat is your name, prisoner? ");
 
         String playerName = scanner.nextLine();
-        System.out.println("\nWelcome, " + playerName
-                + ". Your journey begins now. \nSo you see yourself inside this cage. \nYou must get out of this cage, immidiately.");
+        System.out.println("\nWelcome, " + playerName + ". Your journey begins now. \nSo you see yourself inside this cage. \nYou must get out of this cage, immediately.");
 
-        Player player = new Player(playerName);
+        player = new Player(playerName);
+        initializeInventory();
+
+        gameLoop();
+    }
+
+    private void initializeInventory() {
         player.addToInventory(new Book("A Tale of Two Cities"));
         player.addToInventory(new WaterBottle("Plastic Water Bottle"));
         player.addToInventory(new Pen("Blue Pen"));
         player.addToInventory(new Vase("Ancient Vase"));
         player.addToInventory(new MiniChair("Wooden Mini Chair"));
         player.addToInventory(new CoffeeCup("Cup of Coffee"));
+    }
 
-        // Game loop
+    private void gameLoop() {
         boolean gameRunning = true;
 
         while (gameRunning) {
@@ -61,13 +72,11 @@ public class MainGame {
                     System.out.println("\nInvalid choice. Please select a valid option.");
                     break;
             }
-            
         }
         scanner.close();
     }
 
-    // Helper method to safely read an integer from the user, preventing crashes
-    // from non-integer input
+    // Helper method to safely read an integer from the user, preventing crashes from non-integer input
     private static int safeNextInt(Scanner scanner) {
         while (true) {
             try {

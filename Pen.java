@@ -13,7 +13,7 @@ public class Pen extends GameItem {
     @Override
     public void use() {
         if (!GameState.chairUsed) {
-            System.out.println("\nYou need to use the MiniChair to reach the shelf items first.");
+            System.out.println("\nYou need to use the Wooden Mini Chair to reach the shelf items first.");
             return;
         }
 

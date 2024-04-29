@@ -1,5 +1,3 @@
-
-
 public class MiniChair extends GameItem {
 
     public MiniChair(String name) {

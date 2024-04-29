@@ -12,7 +12,7 @@ public class Vase extends GameItem {
     @Override
     public void use() {
         if (!GameState.chairUsed) {
-            System.out.println("\nYou need to use the MiniChair first to reach the Vase.");
+            System.out.println("\nYou need to use the Wooden Mini Chair first to reach the Vase.");
             return;
         }
 
@@ -23,7 +23,7 @@ public class Vase extends GameItem {
             return;
         }
 
-        System.out.println("\nYou have the magical " + getName() + ". Do you want to 1. Look inside it \n2. Throw it? \nChoose an option (1 or 2):");
+        System.out.println("\nYou have the magical " + getName() + ". \nDo you want to 1. Look inside it \n2. Throw it? \nChoose an option (1 or 2):");
         int choice = safeReadInt(scanner);
 
         switch (choice) {

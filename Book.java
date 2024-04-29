@@ -9,7 +9,7 @@ public class Book extends GameItem {
     @Override
     public void use() {
         if (!GameState.chairUsed) {
-            System.out.println("\nYou need to use the MiniChair first to reach the Book.");
+            System.out.println("\nYou need to use the Wooden Mini Chair first to reach the Book.");
             return;
         }
         System.out.println("\n'Once upon a time..' OMG A KEY. YOU CAN FINALLY ESCAPE NOW!");
