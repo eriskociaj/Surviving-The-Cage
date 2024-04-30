@@ -42,7 +42,7 @@ public class WaterBottle extends GameItem {
         System.out.println("\nYou throw the " + getName() + " away. Eh atleast you got some frustation out.");
     }
 
-    // Static method to safely read an integer from the user input
+    // Utility method to safely read an integer from the scanner, ensuring valid input
     public static int safeReadInt(Scanner scanner) {
         while (true) {
             try {
